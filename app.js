@@ -36,7 +36,7 @@ server.use(passport.session())
 require("./passportConfig")(passport);
 server.use(router);
 
-let port = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env.PORT || '3001');
 
 // noinspection JSCheckFunctionSignatures
 mongoose.connect(mongoUri, {useNewUrlParser: true, useUnifiedTopology: true},

@@ -41,6 +41,6 @@ exports.LogOut = (req, res) => {
 }
 
 exports.GetUser = (req, res) => {
-  console.log("GetUser: ", req.user);
+  console.error("GetUser: ", req.user);
   res.send(req.user);
 }
