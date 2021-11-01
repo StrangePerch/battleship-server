@@ -20,7 +20,7 @@ server.use(bodyParser.urlencoded({extended: true}))
 
 // noinspection JSCheckFunctionSignatures
 server.use(cors({
-  origin: "*",
+  origin: "http://localhost:3000",
   credentials: true
 }))
 
