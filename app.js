@@ -2,7 +2,7 @@
 const express = require("express");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
+const session = require("cookie-session");
 const bodyParser = require("body-parser");
 const cors = require("cors")
 
@@ -24,13 +24,14 @@ server.use(bodyParser.urlencoded({extended: true}))
 //   credentials: true
 // }))
 
+
+
+server.use(cookieParser("secretcode"))
 server.use(session({
   secret: "secretcode",
   resave: true,
   saveUninitialized: true
 }))
-
-server.use(cookieParser("secretcode"))
 server.use(passport.initialize());
 server.use(passport.session())
 require("./passportConfig")(passport);

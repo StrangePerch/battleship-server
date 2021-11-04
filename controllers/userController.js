@@ -40,7 +40,8 @@ exports.LogOut = (req, res) => {
   res.send("LogOut")
 }
 
-exports.GetUser = (req, res) => {
+exports.GetUser = (req,res,next) => {
   console.log("GetUser: ", req.user);
   res.send(req.user);
+  next();
 }
