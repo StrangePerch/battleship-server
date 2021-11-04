@@ -4,7 +4,6 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const session = require("cookie-session");
 const bodyParser = require("body-parser");
-const cors = require("cors")
 
 const router = require("./routes");
 
@@ -18,17 +17,14 @@ const mongoUri =
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: true}))
 
-// noinspection JSCheckFunctionSignatures
-// server.use(cors({
-//   origin: "http://localhost:3000",
-//   credentials: true
-// }))
-
-
 
 server.use(cookieParser("secretcode"))
 server.use(session({
   secret: "secretcode",
+  cookie: {
+    expires: false,
+    domain: "https://battleship-online.azurewebsites.net/"
+  },
   resave: true,
   saveUninitialized: true
 }))
